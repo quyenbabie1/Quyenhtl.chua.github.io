@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#24170f">
+<title>Chùa Bình An Tâm – Chùa Online</title>
+<style>
+:root{--gold:#e9c879;--cream:#fff4dc;--brown:#2b1b13;--muted:#d8c7a6}
+*{box-sizing:border-box}
+body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--cream);background:radial-gradient(ellipse at 50% 15%,#76502c 0,#3b281b 38%,#17100d 100%);min-height:100vh}
+header{text-align:center;padding:34px 18px 20px;background:linear-gradient(180deg,rgba(10,7,5,.55),transparent)}
+.kicker{letter-spacing:4px;font:11px Arial,sans-serif;color:var(--gold);text-transform:uppercase}
+h1{font-size:clamp(30px,8vw,48px);font-weight:normal;margin:10px 0;color:#f6dfa4;text-shadow:0 2px 15px #000}
+.subtitle{font-size:15px;color:#e7d6b8}
+main{width:min(920px,100%);margin:auto;padding:0 16px 40px}
+.sanctuary{position:relative;text-align:center;border:1px solid rgba(233,200,121,.45);border-radius:22px;padding:26px 14px 24px;background:linear-gradient(180deg,rgba(20,12,8,.28),rgba(8,5,3,.75)),radial-gradient(ellipse at 50% 45%,#8b5c2c 0,#4a2d19 45%,#20140e 100%);box-shadow:0 18px 50px #090604;overflow:hidden}
+.sanctuary:before,.sanctuary:after{content:"✦";position:absolute;color:#e9c87988;font-size:20px;top:18px}.sanctuary:before{left:22px}.sanctuary:after{right:22px}
+.halo{width:180px;height:180px;border-radius:50%;margin:0 auto 8px;border:2px solid #e9c87999;box-shadow:0 0 40px #e9c87966,inset 0 0 35px #e9c87933;display:grid;place-items:center;background:radial-gradient(circle,#f8e3a533,transparent 68%)}
+.buddha{font-size:88px;filter:drop-shadow(0 5px 10px #160b04)}
+.lotus{font-size:32px;color:var(--gold);margin:2px}
+.altar{margin:12px auto 0;max-width:390px;border-top:3px solid #d8ae61;border-bottom:5px solid #a56d32;padding:12px 10px 8px;background:linear-gradient(90deg,#4a2515,#9a6030,#4a2515);box-shadow:0 8px 16px #090604}
+.offerings{font-size:28px;letter-spacing:8px}
+.status{min-height:24px;color:#f5d995;font-size:14px;margin:15px 0 0}
+section.panel{margin-top:18px;padding:20px;border:1px solid #b58b4e66;border-radius:18px;background:#1e140fe8;box-shadow:0 8px 24px #09060455}
+h2{font-size:22px;font-weight:normal;color:var(--gold);margin:0 0 14px}
+.actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+button{font:16px Georgia,serif;color:#2b1b13;background:linear-gradient(180deg,#f6dfa4,#d2a653);border:1px solid #f9e7b8;border-radius:12px;padding:13px 10px;min-height:52px;cursor:pointer;box-shadow:0 3px 0 #805321}
+button:active{transform:translateY(2px);box-shadow:0 1px 0 #805321}
+button.secondary{background:#3a281b;color:#f4dfb5;border-color:#8d6b3d;box-shadow:none}
+.small{font:12px Arial,sans-serif;color:#cbb995;line-height:1.6}
+label{display:block;color:#e8d7b8;margin:12px 0 6px}
+input,textarea{width:100%;border-radius:10px;border:1px solid #8d6b3d;background:#120d09;color:#fff2d5;padding:12px;font:16px Arial,sans-serif}
+textarea{min-height:95px;resize:vertical}
+.prayer{border-left:2px solid var(--gold);padding:10px 12px;margin:10px 0;background:#ffffff09;border-radius:0 10px 10px 0;overflow-wrap:anywhere}
+footer{text-align:center;padding:24px 15px 38px;color:#c8b38d;font-size:13px;line-height:1.7}
+@media(min-width:650px){.actions{grid-template-columns:repeat(4,minmax(0,1fr))}.sanctuary{padding:34px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Không gian tâm linh trực tuyến</div>
+  <h1>🪷 Chùa Bình An Tâm 🪷</h1>
+  <div class="subtitle">Một phút lắng lòng – Gửi một niệm lành</div>
+</header>
+<main>
+  <div class="sanctuary" aria-label="Không gian chính điện minh họa">
+    <div class="halo"><div class="buddha" aria-label="Biểu tượng Phật">☸</div></div>
+    <div class="lotus">❀ ❀ ❀</div>
+    <div class="altar"><div class="offerings">🪷 🕯️ 🪷</div></div>
+    <div class="status" id="status" aria-live="polite">Nguyện đem lòng thành kính, hướng về điều thiện lành.</div>
+  </div>
+
+  <section class="panel">
+    <h2>🙏 Dâng lễ trực tuyến</h2>
+    <div class="actions">
+      <button onclick="offer('Một nén hương lòng đã được dâng.')">🪔 Thắp hương</button>
+      <button onclick="offer('Đã dâng một đóa hoa sen thanh khiết.')">🪷 Dâng hoa</button>
+      <button onclick="offer('Một ngọn đèn trí tuệ đã được thắp sáng.')">🕯️ Dâng đèn</button>
+      <button onclick="offer('Xin gửi một niệm lành đến muôn người.')">🙏 Gửi niệm lành</button>
+    </div>
+    <p class="small">Các nghi thức trên là tương tác biểu trưng trên website, không thay thế nghi lễ tại chùa.</p>
+  </section>
+
+  <section class="panel">
+    <h2>📿 Niệm Phật – Tĩnh tâm</h2>
+    <p>Chậm lại một chút, hít thở nhẹ nhàng và giữ tâm an lành.</p>
+    <button class="secondary" style="width:100%" onclick="countChant()">Nam mô A Di Đà Phật</button>
+    <p class="small" style="text-align:center">Số lần niệm trên thiết bị này: <strong id="count">0</strong></p>
+    <button class="secondary" style="width:100%;min-height:40px" onclick="resetChant()">Đặt lại bộ đếm</button>
+  </section>
+
+  <section class="panel">
+    <h2>🌸 Gửi lời nguyện</h2>
+    <label for="name">Tên (không bắt buộc)</label>
+    <input id="name" maxlength="50" placeholder="Tên của bạn">
+    <label for="wish">Lời nguyện</label>
+    <textarea id="wish" maxlength="500" placeholder="Viết lời nguyện bình an, sức khỏe, gia đình..."></textarea>
+    <button style="width:100%;margin-top:12px" onclick="saveWish()">Lưu lời nguyện trên thiết bị</button>
+    <p class="small">Lời nguyện được lưu trong trình duyệt trên thiết bị bạn đang dùng; không tự động gửi lên mạng.</p>
+    <div id="wishes"></div>
+  </section>
+</main>
+<footer>
+  <div>🪷 Tâm an – Vạn sự an 🪷</div>
+  <div>Nguyện mọi người luôn bình an, tỉnh thức và sống thiện lành.</div>
+</footer>
+<script>
+function offer(message){document.getElementById('status').textContent=message}
+let count=Number(localStorage.getItem('chantCount')||0);
+function renderCount(){document.getElementById('count').textContent=count}
+function countChant(){count++;localStorage.setItem('chantCount',String(count));renderCount();offer('Nam mô A Di Đà Phật – '+count+' lần niệm.')}
+function resetChant(){count=0;localStorage.setItem('chantCount','0');renderCount()}
+function getWishes(){try{return JSON.parse(localStorage.getItem('templeWishes')||'[]')}catch(e){return []}}
+function renderWishes(){
+ const box=document.getElementById('wishes');box.innerHTML='';
+ getWishes().slice().reverse().forEach(item=>{
+  const div=document.createElement('div');div.className='prayer';
+  const strong=document.createElement('strong');strong.textContent=item.name||'Một lời nguyện lành';
+  const p=document.createElement('div');p.textContent=item.text;
+  div.append(strong,p);box.append(div);
+ });
+}
+function saveWish(){
+ const name=document.getElementById('name').value.trim();
+ const text=document.getElementById('wish').value.trim();
+ if(!text){offer('Bạn hãy viết lời nguyện trước khi lưu nhé.');return}
+ const items=getWishes();items.push({name,text});
+ localStorage.setItem('templeWishes',JSON.stringify(items));
+ document.getElementById('wish').value='';renderWishes();offer('Lời nguyện đã được lưu trên thiết bị này.');
+}
+renderCount();renderWishes();
+</script>
+</body>
+</html>
